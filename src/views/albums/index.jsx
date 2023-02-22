@@ -25,8 +25,9 @@ const [albums,setAlbums]=useState([]);
 
         // console.log(userAlbums[0].title);
 /* my code  */
+// console.log(albumsData);
 setAlbums(
-albumsData.map(item =>({src:item.title})),
+albumsData.map(item =>({asd:item.title})),
 )
 /* end of my code  */
 

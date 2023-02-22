@@ -1,5 +1,5 @@
 const test = ({albums})=>{
-// console.log(albums[0]);
+console.log(albums[0]);
     return (
         <div>
             <p>sadasdasd</p>
