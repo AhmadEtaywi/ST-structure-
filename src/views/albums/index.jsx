@@ -52,10 +52,37 @@ userAlbums
         style={{
           color: 'blue',
         }}>
-        Photos
+        Albums
       </h1>
-      <Test albums={albums} />
-      <Gallery photos={photos} />
+
+
+
+
+
+
+
+      <div className="main" >
+        {albums.map((albums, index) => (
+          <div key={index} className="albums" >
+            <div className="albums-Container">
+              <p id={albums.id}  >{albums.title} </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+      {/* <Test albums={albums} /> */}
+      {/* <Gallery photos={photos} /> */}
     </div>
   );
 };
