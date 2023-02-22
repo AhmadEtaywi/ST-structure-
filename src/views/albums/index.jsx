@@ -22,16 +22,17 @@ const [albums,setAlbums]=useState([]);
       const userAlbums = albumsData.filter(
         item => item.userId === currentUser?.id,
         );
+        // console.log(userAlbums[5].title);
 
         // console.log(userAlbums[0].title);
 /* my code  */
 // console.log(albumsData);
 setAlbums(
-albumsData.map(item =>({asd:item.title})),
+userAlbums
 )
-/* end of my code  */
+    /* end of my code  */
 
-  // console.log(userAlbums);
+    // console.log(userAlbums);
 
       setPhotos(
         photosData
