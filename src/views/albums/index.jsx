@@ -4,8 +4,10 @@ import Gallery from './components/Gallery';
 import { AlbumService, PhotoService } from './services';
 import { UserContext } from '../../context';
 import Test from './test';
+import { useNavigate } from 'react-router';
 const Albums = () => {
   /* my code  */
+  const navigate = useNavigate();
 const [albums,setAlbums]=useState([]);
 // console.log(albums);
   /* end of my code  */
@@ -46,6 +48,10 @@ userAlbums
     fetchData();
   }, [currentUser?.id]);
 
+  const clicked = () => {
+    navigate('/albums/photos');
+  }
+
   return (
     <div>
       <h1
@@ -65,7 +71,7 @@ userAlbums
         {albums.map((albums, index) => (
           <div key={index} className="albums" >
             <div className="albums-Container">
-              <p id={albums.id}  >{albums.title} </p>
+              <p id={albums.id} onClick={clicked}  >{albums.title}  </p>
             </div>
           </div>
         ))}
