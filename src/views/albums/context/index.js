@@ -1,1 +1,6 @@
-// export * from './file.context'
+import { createContext } from 'react';
+
+const UserAlbumsContext = createContext([]);
+
+export default UserAlbumsContext;
+
