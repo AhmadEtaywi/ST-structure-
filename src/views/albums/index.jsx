@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, startTransition } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { AlbumService } from './services';
 import { UserContext } from '../../context';
 import { useNavigate } from 'react-router';
@@ -31,13 +31,10 @@ const Albums = () => {
   }, [currentUser?.id]);
 
   const showPhotos = (id) => {
-    // startTransition(() => {
-    //   navigate(`/albums/photos?albums=${id}`);
-    // });
     navigate(`/albums/photos?albums=${id}`)
   };
   return (
-    <div>
+    <div className='wrapper'>
 
       <Header title={<p>Albums</p>} />
       <div className="main" >

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { PhotoService } from './services';
-import './test.css'
+import './Photos.css'
 import Header from './components/Header/Header';
 
-const Test = () => {
+const Photos = () => {
   const albumsId = Number(new URLSearchParams(window.location.search).get('albums'));
   const [photos, setPhotos] = useState([]);
 
@@ -34,7 +34,7 @@ const Test = () => {
   }, [albumsId]);
   return (
 
-    <div>
+    <div className='wrapper'>
       <Header title={<p>Photos</p>} />
       <div className='photos-main'>
         {photos.map((photo, index) => (
@@ -51,4 +51,4 @@ const Test = () => {
 
   );
 };
-export default Test;
+export default Photos;
