@@ -1,9 +1,7 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, Suspense } from 'react';
 import { useLocation, useMatch } from 'react-router-dom';
-
 import { LoginRouter } from '../routers';
 import { UserProvider } from '../context';
-
 import MainLayout from './Main';
 import LoginLayout from './Login';
 
@@ -14,7 +12,6 @@ const Layout = () => {
   const location = useLocation();
   const isLoginPage = isLoginRoute(location.pathname);
 
-  // scroll top on page navigation
   useEffect(() => {
     if (componentRef?.current?.scrollIntoView)
       componentRef?.current?.scrollIntoView();
@@ -25,9 +22,12 @@ const Layout = () => {
       {isLoginPage ? (
         <LoginLayout />
       ) : (
-        <UserProvider>
-          <MainLayout componentRef={componentRef} />
-        </UserProvider>
+        <Suspense fallback={<></>}>
+          <UserProvider>
+            <MainLayout componentRef={componentRef} />
+          </UserProvider>
+        </Suspense>
+
       )}
     </>
   );

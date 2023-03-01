@@ -1,36 +1,54 @@
-import { useContext, useState } from 'react';
-import Gallery from './components/Gallery';
+import { useState, useEffect } from 'react';
 import { PhotoService } from './services';
-import UserAlbumsContext from './context/index';
+import './test.css'
+import Header from './components/Header/Header';
 
 const Test = () => {
-  const albumsId = new URLSearchParams(window.location.search).get('albums');
-  const userAlbums = useContext(UserAlbumsContext); // consume the context
+  const albumsId = Number(new URLSearchParams(window.location.search).get('albums'));
   const [photos, setPhotos] = useState([]);
-  const photosData = PhotoService.list();
-//   console.log(photosData);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const [photosData] = await new Promise((resolve, reject) => {
+        PhotoService.list().then((data) => resolve([data]))
+          .catch((error) => reject(error))
+      });
 
+      setPhotos(
+        photosData
+          .filter(
+            (el) =>
+              el.albumId === albumsId
+          )
+          .map((item) => ({
+            title: item.title,
+            id: item.id,
+            src: item.url,
+            width: 150,
+            height: 150,
+          }))
+      );
+    };
 
-  setPhotos(
-    photosData
-      .filter(el => userAlbums.some(item => item.id === el.albumId))
-      .map(item => ({ src: item.url, width: 600, height: 600 })),
-
-  );
-
+    fetchData();
+  }, [albumsId]);
   return (
+
     <div>
-      {/* <p>{albumsId}</p> */}
-      {/* use the userAlbums state */}
-      {/* <Gallery
-        photos={photos.filter((el) =>
-          userAlbums.some((item) => item.id === el.albumId)
-        )}
-      /> */}
-      <Gallery photos={photos} />
+      <Header title={<p>Photos</p>} />
+      <div className='photos-main'>
+        {photos.map((photo, index) => (
+
+          <div className='container' key={index}>
+            <p className='photos-title'>{photo.title}</p>
+            <img alt="" src={photos[index].src}
+              width={photos[index].width}
+              height={photos[index].height}  ></img>
+          </div>
+        ))}
       </div>
+    </div>
+
   );
 };
-
 export default Test;

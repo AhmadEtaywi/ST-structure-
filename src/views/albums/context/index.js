@@ -1,6 +1,6 @@
-import { createContext } from 'react';
+// import { createContext } from 'react';
 
-const UserAlbumsContext = createContext([]);
+// const UserAlbumsContext = createContext([]);
 
-export default UserAlbumsContext;
+// export default UserAlbumsContext;
 

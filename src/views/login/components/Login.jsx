@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 import { AuthService } from '../services';
 
 import './login.css';
@@ -10,7 +11,7 @@ const Login = () => {
 
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
-  
+
   useEffect(() => {
     localStorage.clear();
   }, []);
@@ -25,6 +26,7 @@ const Login = () => {
       if (!verifiedUser) {
         setError('Invalid Credentials!');
       } else {
+
         navigate('/albums');
       }
     } catch (error) {

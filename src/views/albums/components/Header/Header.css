@@ -1,0 +1,9 @@
+.header-title{
+    display: flex;
+    justify-content: center;
+
+}
+
+.header-container{
+    margin-bottom: 5rem;
+}
