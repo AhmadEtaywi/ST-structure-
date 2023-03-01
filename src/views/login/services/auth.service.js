@@ -6,7 +6,7 @@ export const AuthService = {
   login: async email => {
     const result = await axios.get('users');
 
-    const verifiedUser = result.data.find(el => el.email === email);
+    const verifiedUser = result.data.find(el => el.email.toLowerCase() === email.toLowerCase());
 
     if (verifiedUser) {
       StorageService.setAuthKey(verifiedUser);
