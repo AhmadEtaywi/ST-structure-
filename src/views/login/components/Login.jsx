@@ -25,6 +25,7 @@ const Login = () => {
       } else {
 
         navigate('/albums');
+        // navigate('/posts')
       }
     } catch (error) {
       setError('Something went wrong.');
