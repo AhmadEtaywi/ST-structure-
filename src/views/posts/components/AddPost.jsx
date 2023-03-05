@@ -1,5 +1,6 @@
-import React, { useState, useContext, useEffect } from 'react';
-import './AddPost.css'
+import React, { useState } from 'react';
+// import './AddPost.css'
+import styles from './AddPost.module.css';
 
 // import '../index.css'
 // import Header from '../albums/components/Header/Header';
@@ -18,7 +19,7 @@ const AddPost = ({ addNewPost, setNewPost }) => {
   };
 
   return (
-    <form className='AddPost-box' onSubmit={handleSubmit}>
+    <form className={styles.AddPost_box} onSubmit={handleSubmit}>
       <textarea
         rows="5"
         cols="33"

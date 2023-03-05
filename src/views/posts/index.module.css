@@ -3,7 +3,7 @@ body{
     padding: 0;
  }
  
- .Discover-page{
+ .DiscoverPage{
      display: flex;
      flex-direction: column;
  align-items: center;
@@ -25,7 +25,7 @@ body{
      letter-spacing: -0.015em;
      color: #000000;
  }
- .search-bar{
+ .searchBar{
  margin-bottom: 3rem;
      width: 500px;
      height: 40px;
@@ -35,7 +35,7 @@ body{
      box-sizing: border-box;
      font-size: 16px;
  }
- .show-more{
+ .show_more{
      margin-bottom: 2rem;
      margin-left: 30%;
  
@@ -52,7 +52,7 @@ body{
  
  z-index: 2;
  }
- .pro-img-class {
+ .pro_img_class {
      width: 30px;
      height: 30px;
  }
@@ -83,12 +83,12 @@ body{
  
  }
  
- .js-body{
+ .js_body{
      margin-top: 15px;
      margin-bottom: 25px;
  }
  
- .comment-textarea{
+ .comment_textarea{
      resize: none;
      border: none;
      /* opacity: 0; */
@@ -112,13 +112,13 @@ body{
      height: 75%;
  }
  
- .comment-id{
+ .comment_id{
      display: flex;
      flex-direction: column;
     
  }
  
- .comment-id-2{
+ .comment_id_2{
      display: flex;
      flex-direction: row;
      margin-bottom: 50px;
@@ -127,15 +127,15 @@ body{
      gap: 0.5rem;
  }
  
- .comment-img{
+ .comment_img{
      width: 30px;
      height: 30px;
  }
- .posts-comment::after{
+ .posts_comment::after{
      width: 10%;
  }
  
- .tab-bar{
+ .tab_bar{
      position: sticky;
      bottom: 0px;
    padding-left: 3rem;
@@ -143,19 +143,19 @@ body{
  }
  
  
- .post-id{
+ .post_id{
      display: flex;
      flex-direction: row;
      align-items: center;
      gap: 0.5rem;
  }
  
- .post-id-2{
+ .post_id_2{
      display: flex;
      flex-direction: column;
  }
  
- .inner-div{
+ .innerDiv{
      margin-bottom: 5rem;
      width: 35rem;
      

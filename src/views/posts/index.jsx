@@ -5,8 +5,10 @@ import { useNavigate } from 'react-router';
 import Comments from './Comments';
 import Ellipse from './images/Ellipse.png';
 import TabBar from './images/Tab Bar.jpg';
-import './index.css'
+// import './index.css'
+import styles from './index.module.css'
 import AddPost from './components/AddPost';
+
 
 const Posts = () => {
   const navigate = useNavigate();
@@ -68,17 +70,17 @@ const Posts = () => {
 
 
   return (
-    <div className="Discover-page">
-      <div className="Discover">
+    <div className={styles.DiscoverPage}>
+      <div className={styles.Discover}>
         <p >Discover</p>
         <p>WHAT'S NEW TODAY</p>
       </div>
 
-      <div className="test1">
+      <div className={styles.test1}>
         <p onClick={albumsPage}>Albums</p>
 
-        <div className="search-container">
-          <input className="search-bar" type="text" placeholder="Search Posts" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
+        <div className={styles.searchContainer}>
+          <input className={styles.searchBar} type="text" placeholder="Search Posts" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
         </div>
         {showAddPost && <AddPost addNewPost={addNewPost} setNewPost={setShowAddPost} />}
 
@@ -87,16 +89,16 @@ const Posts = () => {
           .slice(0, displayCount)
           .map((post, index) => (
 
-            <div key={Math.random()} className="inner-div">
-              <div className="inner-div-2">
-                <div className="post-id">
-                  <img alt="" src={Ellipse} className="pro-img-class" />
-                  <div className="post-id-2">
-                    <h6 className="h6_name">{currentUser.name}</h6>
-                    <h6 className="h6_username">@{currentUser.username}</h6>
+            <div key={Math.random()} className={styles.innerDiv}>
+              <div className={styles.inner_div_2}>
+                <div className={styles.post_id}>
+                  <img alt="" src={Ellipse} className={styles.pro_img_class} />
+                  <div className={styles.post_id_2}>
+                    <h6 className={styles.h6_name}>{currentUser.name}</h6>
+                    <h6 className={styles.h6_username}>@{currentUser.username}</h6>
                   </div>
                 </div>
-                <p className="js-body" id={post.id} onClick={() => showComments(post.id, post, post.body)}>
+                <p className={styles.js_body} id={post.id} onClick={() => showComments(post.id, post, post.body)}>
                   {post.body}
                 </p>
               </div>
@@ -111,11 +113,11 @@ const Posts = () => {
         }
         <div>
 
-          <button className="show-more" onClick={handleLoadMore}>Show More</button>
+          <button className={styles.show_more} onClick={handleLoadMore}>Show More</button>
         </div>
 
         <img alt="" onClick={() => setShowAddPost(!showAddPost)}
-          src={TabBar} className="tab-bar" />
+          src={TabBar} className={styles.tab_bar} />
 
       </div>
 
