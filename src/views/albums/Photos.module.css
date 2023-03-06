@@ -1,4 +1,7 @@
-.photos-main {
+.wrapper{
+    margin-top: 3rem;
+}
+.photos_main {
     color: #000000;
     display: flex;
     flex-wrap: wrap;

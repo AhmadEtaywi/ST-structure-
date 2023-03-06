@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthService } from '../services';
-import './login.css';
+import styles from './login.module.css';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -33,22 +33,22 @@ const Login = () => {
   };
 
   return (
-    <div className='login-main'>
-      <h1 className='header'>Log in</h1>
-      <form className='form' onSubmit={handleSubmit}>
+    <div className={styles.login_main}>
+      <h1 className={styles.header}>Log in</h1>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <input
-          className='email'
+          className={styles.email}
           type='email'
           id='email'
           value={email}
           onChange={event => setEmail(event.target.value)}
           placeholder='Email'
         />
-        <input className='password' type='password' placeholder='Password' />
-        <button className='submit-btn' type='submit'>
+        <input className={styles.password} type='password' placeholder='Password' />
+        <button className={styles.submit_btn} type='submit'>
           LOG IN
         </button>
-        {error && <div className='errorMsg'>{error}</div>}
+        {error && <div className={styles.errorMsg}>{error}</div>}
       </form>
     </div>
   );

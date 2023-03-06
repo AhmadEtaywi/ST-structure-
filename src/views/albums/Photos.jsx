@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { PhotoService } from './services';
-import './Photos.css'
+import styles from './Photos.module.css'
 import Header from './components/Header/Header';
 
 const Photos = () => {
   const albumsId = Number(new URLSearchParams(window.location.search).get('albums'));
   const [photos, setPhotos] = useState([]);
-
+console.log(photos);
   useEffect(() => {
     const fetchData = async () => {
       const [photosData] = await new Promise((resolve, reject) => {
@@ -34,13 +34,13 @@ const Photos = () => {
   }, [albumsId]);
   return (
 
-    <div className='wrapper'>
+    <div className={styles.wrapper}>
       <Header title={<p>Photos</p>} />
-      <div className='photos-main'>
+      <div className={styles.photos_main}>
         {photos.map((photo, index) => (
 
-          <div className='container' key={index}>
-            <p className='photos-title'>{photo.title}</p>
+          <div className={styles.container} key={index}>
+            <p className={styles.photos_title}>{photo.title}</p>
             <img alt="" src={photos[index].src}
               width={photos[index].width}
               height={photos[index].height}  ></img>

@@ -5,9 +5,9 @@ import { useNavigate } from 'react-router';
 import Comments from './Comments';
 import Ellipse from './images/Ellipse.png';
 import TabBar from './images/Tab Bar.jpg';
-// import './index.css'
-import styles from './index.module.css'
 import AddPost from './components/AddPost';
+import styles from './index.module.css';
+// import { Link } from 'react-router-dom';
 
 
 const Posts = () => {
@@ -18,7 +18,6 @@ const Posts = () => {
 
   const [searchValue, setSearchValue] = useState('');
   const [displayCount, setDisplayCount] = useState(5);
-  // const [newPost, setNewPost] = useState([]);
   const [showAddPost, setShowAddPost] = useState(false);
 
   const handleLoadMore = () => {
@@ -61,14 +60,16 @@ const Posts = () => {
     fetchData();
   }, [currentUser?.id]);
 
-  const showComments = (id) => {
-    navigate(`/posts/comments?posts=${id}`)
+  const showComments = (postId) => {
+    navigate(`/posts/comments?postId=${postId}`);
   };
+
+  // const showComments = (postId) => {
+  //   navigate(`/posts/comments/${postId}`);
+  // };
   const albumsPage = () => {
     navigate(`/albums`)
   }
-
-
   return (
     <div className={styles.DiscoverPage}>
       <div className={styles.Discover}>
@@ -76,11 +77,15 @@ const Posts = () => {
         <p>WHAT'S NEW TODAY</p>
       </div>
 
-      <div className={styles.test1}>
+      <div className={styles.albumsPage}>
         <p onClick={albumsPage}>Albums</p>
 
         <div className={styles.searchContainer}>
-          <input className={styles.searchBar} type="text" placeholder="Search Posts" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
+          <input className={styles.searchBar}
+            type="text"
+            placeholder="Search Posts"
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)} />
         </div>
         {showAddPost && <AddPost addNewPost={addNewPost} setNewPost={setShowAddPost} />}
 
@@ -98,8 +103,13 @@ const Posts = () => {
                     <h6 className={styles.h6_username}>@{currentUser.username}</h6>
                   </div>
                 </div>
-                <p className={styles.js_body} id={post.id} onClick={() => showComments(post.id, post, post.body)}>
+                <p className={styles.js_body}
+                  id={post.id}
+                  onClick={() => showComments(post.id, post, post.body)}>
                   {post.body}
+                  {/* <Link to={`/posts/comments/${post.id}`}>{post.body}</Link> */}
+
+                  {/* above this code  */}
                 </p>
               </div>
               <Comments
@@ -107,19 +117,19 @@ const Posts = () => {
                 postId={post.id}
                 currentUser={currentUser}
                 handleKeyPress={handleKeyPress} />
+
             </div>
           )
           )
         }
         <div>
-
           <button className={styles.show_more} onClick={handleLoadMore}>Show More</button>
         </div>
 
         <img alt="" onClick={() => setShowAddPost(!showAddPost)}
           src={TabBar} className={styles.tab_bar} />
-
       </div>
+
 
     </div>
 

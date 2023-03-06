@@ -2,8 +2,8 @@ import React, { useState, useContext, useEffect } from 'react';
 import { AlbumService } from './services';
 import { UserContext } from '../../context';
 import { useNavigate } from 'react-router';
-import './Index.css';
 import Header from './components/Header/Header';
+import styles from './index.module.css';
 
 
 
@@ -34,13 +34,13 @@ const Albums = () => {
     navigate(`/albums/photos?albums=${id}`)
   };
   return (
-    <div className='wrapper'>
+    <div className={styles.wrapper}>
 
       <Header title={<p>Albums</p>} />
-      <div className="main" >
+      <div className={styles.main} >
         {albums.map((albums, index) => (
-          <div key={index} className="albums" >
-            <div className="albums-Container">
+          <div key={index} className={styles.albums} >
+            <div className={styles.albums_Container}>
               <p id={albums.id} onClick={() => showPhotos(albums.id)} >{albums.title} </p>
             </div>
           </div>

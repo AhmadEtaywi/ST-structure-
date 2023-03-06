@@ -20,7 +20,7 @@
 
 }
 
-.albums-Container {
+.albums_Container {
   font-family:'Comfortaa';
   font-size: 13px;
   background-color: #fff;
@@ -33,6 +33,6 @@
   width: 35rem;
 }
 
-.albums-Container:hover {
+.albums_Container:hover {
   transform: translateY(-5px);
 }

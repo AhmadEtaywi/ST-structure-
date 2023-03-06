@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
 import Ellipse from './images/Ellipse.png';
 import styles from './index.module.css';
 
 const Comments = ({ comments, postId, currentUser, handleKeyPress }) => {
   return (
-    <>
+    <div>
       {comments
         .filter(comment => comment.postId === postId)
         .map(comment => (
@@ -19,13 +18,12 @@ const Comments = ({ comments, postId, currentUser, handleKeyPress }) => {
             <p className={styles.posts_comment}>{comment.text}</p>
           </div>
         ))}
-      {/* text area for comments */}
       <textarea
         className={styles.comment_textarea}
         placeholder="Add Comment"
         onKeyPress={(e) => handleKeyPress(e, postId)}
       />
-    </>
+    </div>
   );
 };
 
